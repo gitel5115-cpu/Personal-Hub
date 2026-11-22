@@ -1,0 +1,45 @@
+### 4. הוספת משתמש חדש (אמור להחזיר 201 Created ו-id: 4)
+POST http://localhost:3001/users
+Content-Type: application/json
+
+{
+  "username": "TestUser",
+  "password": "123"
+}
+
+### 6. עדכון חלקי של משימה (רק completed ישתנה)
+PATCH http://localhost:3001/todos/1
+Content-Type: application/json
+
+{
+  "completed": true
+}
+
+### 7. דריסת משימה עם PUT (שאר השדות ייעלמו)
+PUT http://localhost:3001/todos/1
+Content-Type: application/json
+
+{
+  "title": "Only title left"
+}
+
+### 8א. מחיקת משימה 1
+DELETE http://localhost:3001/todos/1
+
+### 8ב. בדיקה שמשימה 1 נמחקה (אמור להחזיר 404 Not Found)
+GET http://localhost:3001/todos/1
+
+### 14א. מחיקת אלבום 1
+DELETE http://localhost:3001/albums/1
+
+### 14ב. בדיקה שהתמונות של אלבום 1 נשארו יתומות
+GET http://localhost:3001/photos?albumId=1
+
+### 15. הוספת משתמש נוסף עם אותו שם (אמור להצליח עם id: 5)
+POST http://localhost:3001/users
+Content-Type: application/json
+
+{
+  "username": "TestUser",
+  "password": "456"
+}
